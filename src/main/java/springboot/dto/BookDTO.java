@@ -1,10 +1,12 @@
 package springboot.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModel;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+@ApiModel("Book Model")
 public class BookDTO {
 
 

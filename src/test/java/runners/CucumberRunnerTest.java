@@ -14,10 +14,8 @@ import java.io.IOException;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/resources/cucumber.features/",
-        glue = {"testprojectcore","stepdefs"},
-        plugin = {"pretty", "json:target/cucumber-report.json", "io.qameta.allure.cucumber5jvm.AllureCucumber5Jvm",
-                "html:target/html/"},
-        tags = "@test-tag"
+        glue = {"testprojectcore", "stepdefs"},
+        tags = "@casestudytests"
 )
 public class CucumberRunnerTest {
     @AfterClass

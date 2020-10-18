@@ -1,15 +1,11 @@
-package stepdefs;
+package testprojectcore.stepdefs;
 
+import org.apache.log4j.Logger;
 import testprojectcore.base.DriverUtils;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import io.qameta.allure.Allure;
 import org.junit.jupiter.api.Order;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-
-import java.io.ByteArrayInputStream;
 
 
 /**
@@ -22,14 +18,11 @@ public class BaseStepDefs {
         DriverUtils.initDriver();
     }
 
-    @After
-    public void tearDown(Scenario scenario) {       //Take screenshot and add the attachment to the report if failed
+    @After("@browser")
+    public void tearDown(Scenario scenario) {
+        Logger logger = Logger.getLogger("Scenario Fail Status Logger");
         if (scenario.isFailed()) {
-            if(scenario.getSourceTagNames().contains("@browser")){
-                Allure.addAttachment("Scenario is failed...",
-                        new ByteArrayInputStream(((TakesScreenshot) DriverUtils.getDriver()).getScreenshotAs(OutputType.BYTES)));
-            }
-            Allure.addAttachment("Scenario error: ", scenario.getName());
+            logger.warn("Scenario failed: " + scenario.getName());
         }
         DriverUtils.closeDriver();
     }

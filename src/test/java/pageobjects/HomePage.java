@@ -6,10 +6,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import testprojectcore.util.Helper;
 
 import java.util.List;
 
 public class HomePage extends DriverUtils {
+
 
 
     @FindBy(xpath = "//a[@title='Close']")
@@ -18,8 +20,11 @@ public class HomePage extends DriverUtils {
     @FindBy(css = "i[class='icon navigation-icon-user']")
     WebElement loginButton;
 
-    @FindBy(css = "a.category-header")
+    @FindBy(css = "a[class='category-header']")
     List<WebElement> categoryHeaders;
+
+    @FindBy(css = "div#notification-popup .modal-close")
+    WebElement indirimleriKacirmaPopup;
 
 
 
@@ -29,21 +34,35 @@ public class HomePage extends DriverUtils {
     }
 
 
-    public void navigateToHomepage(){
+    public void navigateToHomepage() {
         driver.get("https://www.trendyol.com/");
     }
 
-    public void closeFancyBox(){
-        fancyBoxCloseButton.click();
+    public void closeFancyBoxIfExists() {
+        if (fancyBoxCloseButton.isDisplayed()) {
+            fancyBoxCloseButton.click();
+        }
     }
 
-    public void clickLoginButton(){
+    public void clickLoginButton() {
         loginButton.click();
     }
 
-    public void waitForLoginButtonToBeClickable(){
+    public void waitForLoginButtonToBeClickable() {
         waitUntil(ExpectedConditions.elementToBeClickable(loginButton), 10, driver);
     }
 
+    public void clickCategoryHeadersAccordingToALoopIndex(int loopIndex) {
+        categoryHeaders.get(loopIndex).click();
+    }
 
+    public int returnCategoryHeadersListSize() {
+        return categoryHeaders.size();
+    }
+
+    public void closeIndirimleriKacirmaPopupIfExists() {
+        if (indirimleriKacirmaPopup.isDisplayed()) {
+            indirimleriKacirmaPopup.click();
+        }
+    }
 }

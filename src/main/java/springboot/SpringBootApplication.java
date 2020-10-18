@@ -10,6 +10,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestOperations;
 import org.springframework.web.client.RestTemplate;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
 
 @org.springframework.boot.autoconfigure.SpringBootApplication
 @EnableAutoConfiguration
@@ -35,6 +39,15 @@ public class SpringBootApplication {
         RestTemplate rest = new RestTemplate();
         rest.getMessageConverters().add(0, mappingJackson2HttpMessageConverter);
         return rest;
+    }
+
+    @Bean
+    public Docket api() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("springboot"))
+                .paths(PathSelectors.any())
+                .build();
     }
 
 

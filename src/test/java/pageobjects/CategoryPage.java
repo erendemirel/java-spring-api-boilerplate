@@ -24,13 +24,13 @@ public class CategoryPage extends DriverUtils {
     }
 
 
-    public void checkIfBoutiqueImagesAreDısplayed() {
+    public void checkIfBoutiqueImagesAreDisplayed() throws Exception {
         for (WebElement boutiqueImage : boutiqueImages) {
             Helper.isImageDisplayed(boutiqueImage);
         }
     }
 
-    public void clickARandomBoutique(){
+    public void clickARandomBoutique() {
         int randomElementIndex
                 = ThreadLocalRandom.current().nextInt(boutiqueImages.size()) % boutiqueImages.size();
         boutiqueImages.get(randomElementIndex).click();

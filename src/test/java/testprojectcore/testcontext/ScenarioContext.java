@@ -6,9 +6,6 @@ import io.restassured.specification.RequestSpecification;
 
 import java.util.HashMap;
 
-/**
- * @author Eren Demirel <eren.demirel@payten.com>
- */
 public class ScenarioContext {
 
     protected Response restassuredResponse;

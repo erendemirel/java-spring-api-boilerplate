@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 public class LoginPage extends DriverUtils {
 
 
+
     By usernameInputField = By.id("login-email");
     By passwordInputField = By.id("login-password-input");
     By submitLoginButton = By.xpath("//button[@type='submit']");

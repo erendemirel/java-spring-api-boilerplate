@@ -7,8 +7,12 @@ import org.json.JSONObject;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.notNullValue;
 
 
 public class BookServiceTests extends APITestCase {
@@ -47,8 +51,8 @@ public class BookServiceTests extends APITestCase {
                 .statusCode(400)
                 .extract();
 
-        Assertions.assertTrue(response.jsonPath().getString("errors[0]").equals(authorErrors_Required[0]));
-        Assertions.assertTrue(response.jsonPath().getString("errors[1]").equals(authorErrors_Required[1]));
+        Assertions.assertTrue(Arrays.asList(ERR_AUTHOR_REQUIRED).contains(response.jsonPath().getString("errors[0]")));
+        Assertions.assertTrue(Arrays.asList(ERR_AUTHOR_REQUIRED).contains(response.jsonPath().getString("errors[1]")));
 
     }
 
@@ -68,8 +72,8 @@ public class BookServiceTests extends APITestCase {
                 .statusCode(400)
                 .extract();
 
-        Assertions.assertTrue(response.jsonPath().getString("errors[0]").equals(titleErrors_Required[0]));
-        Assertions.assertTrue(response.jsonPath().getString("errors[1]").equals(titleErrors_Required[1]));
+        Assertions.assertTrue(Arrays.asList(ERR_TITLE_REQUIRED).contains(response.jsonPath().getString("errors[0]")));
+        Assertions.assertTrue(Arrays.asList(ERR_TITLE_REQUIRED).contains(response.jsonPath().getString("errors[1]")));
 
     }
 
@@ -91,7 +95,7 @@ public class BookServiceTests extends APITestCase {
                 .statusCode(400)
                 .extract();
 
-        Assertions.assertTrue(response.jsonPath().getString("errors[0]").equals(authorErrors_Empty));
+        Assertions.assertTrue(response.jsonPath().getString("errors[0]").equals(ERR_AUTHOR_EMPTY));
 
     }
 
@@ -112,7 +116,7 @@ public class BookServiceTests extends APITestCase {
                 .statusCode(400)
                 .extract();
 
-        Assertions.assertTrue(response.jsonPath().getString("errors[0]").equals(titleErrors_Empty));
+        Assertions.assertTrue(response.jsonPath().getString("errors[0]").equals(ERR_TITLE_EMPTY));
 
     }
 
@@ -150,7 +154,11 @@ public class BookServiceTests extends APITestCase {
                 .then().log().all()
                 .contentType(JSON)
                 .statusCode(201)
-                .extract();
+                .extract().response();
+
+        assertThat(response.jsonPath().getString("id"), notNullValue());
+        assertThat(response.jsonPath().getString("author"), notNullValue());
+        assertThat(response.jsonPath().getString("title"), notNullValue());
 
         return response;
 
@@ -202,6 +210,8 @@ public class BookServiceTests extends APITestCase {
                 .contentType(JSON)
                 .statusCode(400)
                 .extract();
+
+        Assertions.assertTrue(secondResponse.jsonPath().getString("error").equals(ERR_DUPLICATE_BOOK));
 
     }
 

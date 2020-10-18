@@ -1,4 +1,4 @@
-package springboot.util;
+package springboot.exceptionhandler;
 
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
@@ -12,9 +12,8 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-import springboot.exceptions.BookAlreadyExistsException;
+import springboot.customexceptions.BookAlreadyExistsException;
 
-import javax.validation.ConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,7 +41,7 @@ public class CustomRestExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler({BookAlreadyExistsException.class})
-    public ResponseEntity<Object> handleBookAlreadyExistsException(BookAlreadyExistsException ex, WebRequest req) {
+    public ResponseEntity<Object> handleBookAlreadyExistsException(BookAlreadyExistsException ex) {
 
         ApiError apiError =
                 new ApiError(HttpStatus.BAD_REQUEST, null, ex.getMessage());

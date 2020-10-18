@@ -1,7 +1,7 @@
 package springboot.service;
 
 import org.springframework.stereotype.Service;
-import springboot.exceptions.BookAlreadyExistsException;
+import springboot.customexceptions.BookAlreadyExistsException;
 import springboot.model.Book;
 
 import java.util.ArrayList;
