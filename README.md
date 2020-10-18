@@ -1,10 +1,10 @@
 #### Başlamadan Önce
-Spring boot uygulamasını ayağa kaldırın## Overview
+Spring boot uygulamasını ayağa kaldırın
 
-- Project is based on Cucumber JVM
--  Page Object Model pattern
-- Can be executed via Maven command that can take parameters from external config file
-- Supports scenario context sharing among test steps using PicoContainer as dependency injection framework
+## Overview
+
+- 
+-  
 
 ### Files
 
