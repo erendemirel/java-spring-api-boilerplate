@@ -1,4 +1,4 @@
-#### Running the API
+### Running the API
 
 - I implemented the API mentioned on the case study. **Before running API tests, you should first run the API**, there are two ways for this, the first one is running the API via:
 
@@ -10,7 +10,7 @@
 
 Note that I used JDK 11
 
-#### Running the Tests
+### Running the Tests
 
 - Web drivers are already included inside the project(_src/test/resources/webdriver_) so no need to change the driver paths. Note that **Chrome drivers are version 86 and Firefox is 0.27.0 and I only put Windows drivers**
 
