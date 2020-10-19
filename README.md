@@ -8,13 +8,13 @@
 
 **_mvn clean install_** and **_java -jar case-study-1.0-SNAPSHOT_** which is under target(Spring Boot Maven plugin packages a fat jar file here)
 
-Note that I used JDK 11
+**Note that I used JDK 11**
 
 ### Running the Tests
 
-- Web drivers are already included inside the project(_src/test/resources/webdriver_) so no need to change the driver paths. Note that **Chrome drivers are version 86 and Firefox is 0.27.0 and I only put Windows drivers**. If you want to use your own drivers, please specify the path inside _src/test/resources/config/config.properties_
+- Web drivers are already included inside the project(_src/test/resources/webdriver_) so no need to change the driver paths. Note that **Chrome drivers are version 86 and Firefox is 0.27.0 and I only put Windows drivers. Also my local Chrome version is 86 and Firefox is 81.0.2**. If you want to use your own drivers, please specify the path inside _src/test/resources/config/config.properties_
 
-To run the tests you may pass the browser parameter in command(It will read the property from config file if you don't), you may use below command to run the tests:
+To run the tests you may pass the browser parameter in command(It will read the property from config file if you don't), you may use below command to run the tests, after starting the API, you may use Maven commands via your IDE(IDE allows to run 2 Maven commands at the same time) or open different command windows:
 
 For chrome:
 _**test -Dcucumber.filter.tags=@casestudytests -Dbrowser=chrome**_
@@ -26,7 +26,7 @@ Note that it will read browser from configuration file when was not set in Maven
 
 Also alternatively, you may use your IDE to run tests(UI tests via feature file and API tests via regarding test class)
 
-Note that I used JDK 11
+**Note that I used JDK 11**
 
 
 ## Overview
