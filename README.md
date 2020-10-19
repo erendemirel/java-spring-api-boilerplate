@@ -12,9 +12,11 @@
 
 ### Running the Tests
 
+- After starting the API, you may use Maven commands via your IDE(IDE allows to run 2 Maven commands at the same time) or open different command windows to enter to command for tests this time
+
 - Web drivers are already included inside the project(_src/test/resources/webdriver_) so no need to change the driver paths. Note that **Chrome drivers are version 86 and Firefox is 0.27.0 and I only put Windows drivers. Also my local Chrome version is 86 and Firefox is 81.0.2**. If you want to use your own drivers, please specify the path inside _src/test/resources/config/config.properties_
 
-To run the tests you may pass the browser parameter in command(It will read the property from config file if you don't), you may use below command to run the tests, after starting the API, you may use Maven commands via your IDE(IDE allows to run 2 Maven commands at the same time) or open different command windows:
+To run the tests you may pass the browser parameter in command(It will read the property from config file if you don't), you may use below command to run the tests
 
 For chrome:
 _**test -Dcucumber.filter.tags=@casestudytests -Dbrowser=chrome**_
