@@ -8,7 +8,7 @@
 
 **_mvn clean install_** and **_java -jar case-study-1.0-SNAPSHOT_** which is under target(Spring Boot Maven plugin packages a fat jar file here)
 
-**Note that I used JDK 11**
+**Note that I used JDK 11 and the application runs on port:8080**
 
 ### Running the Tests
 
