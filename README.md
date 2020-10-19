@@ -6,21 +6,21 @@
 
 **or** alternatively,
 
-**_mvn clean install_** and _java -jar case-study-1.0-SNAPSHOT_ which is under target(Spring Boot Maven plugin packages a fat jar file here)
+**_mvn clean install_** and **_java -jar case-study-1.0-SNAPSHOT_** which is under target(Spring Boot Maven plugin packages a fat jar file here)
 
 Note that I used JDK 11
 
 ### Running the Tests
 
-- Web drivers are already included inside the project(_src/test/resources/webdriver_) so no need to change the driver paths. Note that **Chrome drivers are version 86 and Firefox is 0.27.0 and I only put Windows drivers**
+- Web drivers are already included inside the project(_src/test/resources/webdriver_) so no need to change the driver paths. Note that **Chrome drivers are version 86 and Firefox is 0.27.0 and I only put Windows drivers**. If you want to use your own drivers, please specify the path inside _src/test/resources/config/config.properties_
 
 To run the tests you may pass the browser parameter in command(It will read the property from config file if you don't), you may use below command to run the tests:
 
 For chrome:
-test -Dcucumber.filter.tags=@casestudytests -Dbrowser=chrome
+_**test -Dcucumber.filter.tags=@casestudytests -Dbrowser=chrome**_
 
 For Firefox:
-test -Dcucumber.filter.tags=@casestudytests -Dbrowser=firefox
+_**test -Dcucumber.filter.tags=@casestudytests -Dbrowser=firefox**_
 
 Note that it will read browser from configuration file when was not set in Maven command
 
