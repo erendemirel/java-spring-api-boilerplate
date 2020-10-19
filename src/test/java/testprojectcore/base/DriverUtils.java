@@ -83,6 +83,13 @@ public class DriverUtils extends Driver {
     }
 
     public static void initDriver() {
+        String browser = null;
+        try {
+            browser = System.getProperty("browser").toLowerCase();
+        } catch (Exception e) {
+            logger.warn("browser parameter was not passed in run command, setting the value from the properties file");
+            browser = ConfigFileReader.getInstance().getBrowser().toLowerCase();
+        }
         ChromeOptions chromeOptions = new ChromeOptions();          //Chrome options
         chromeOptions.addArguments("--disable-notifications");
         FirefoxOptions firefoxOptions = new FirefoxOptions();           //Firefox options
@@ -95,26 +102,32 @@ public class DriverUtils extends Driver {
             firefoxOptions.setLogLevel(FirefoxDriverLogLevel.TRACE);
         }
         if (System.getProperty("os.name").toLowerCase().contains("win")) {
-            switch (ConfigFileReader.getInstance().getBrowser()) {
-                case FIREFOX:
+            switch (browser) {
+                case "firefox":
                     System.setProperty("webdriver.gecko.driver", ConfigFileReader.getInstance().getDriverPathFirefoxWindows());
                     driver = new FirefoxDriver(firefoxOptions);
                     break;
-                case CHROME:
+                case "chrome":
                     System.setProperty("webdriver.chrome.driver", ConfigFileReader.getInstance().getDriverPathChromeWindows());
                     driver = new ChromeDriver(chromeOptions);
                     break;
+                default:
+                    System.setProperty("webdriver.chrome.driver", ConfigFileReader.getInstance().getDriverPathChromeWindows());
+                    driver = new ChromeDriver(chromeOptions);
             }
         } else if (System.getProperty("os.name").toLowerCase().contains("nix") || System.getProperty("os.name").toLowerCase().contains("nux") || System.getProperty("os.name").toLowerCase().indexOf("aix") > 0) {
-            switch (ConfigFileReader.getInstance().getBrowser()) {
-                case FIREFOX:
+            switch (browser) {
+                case "firefox":
                     System.setProperty("webdriver.gecko.driver", ConfigFileReader.getInstance().getDriverPathFirefoxLinux());
                     driver = new FirefoxDriver(firefoxOptions);
                     break;
-                case CHROME:
+                case "chrome":
                     System.setProperty("webdriver.chrome.driver", ConfigFileReader.getInstance().getDriverPathChromeLinux());
                     driver = new ChromeDriver(chromeOptions);
                     break;
+                default:
+                    System.setProperty("webdriver.chrome.driver", ConfigFileReader.getInstance().getDriverPathChromeWindows());
+                    driver = new ChromeDriver(chromeOptions);
             }
         }
 

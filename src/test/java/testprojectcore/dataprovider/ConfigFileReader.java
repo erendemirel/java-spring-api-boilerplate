@@ -1,7 +1,5 @@
 package testprojectcore.dataprovider;
 
-import testprojectcore.driverutil.Browser;
-
 import java.io.*;
 import java.util.Properties;
 
@@ -40,9 +38,9 @@ public class ConfigFileReader {
         }
     }
 
-    public Browser getBrowser() {
+    public String getBrowser() {
         String browser = properties.getProperty("browser").toUpperCase();
-        if (browser != null) return Browser.valueOf(browser);
+        if (browser != null) return browser;
         else throw new RuntimeException("Can not read browser from the cofniguration file");
     }
 

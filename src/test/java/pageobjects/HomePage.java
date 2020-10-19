@@ -1,5 +1,6 @@
 package pageobjects;
 
+import org.openqa.selenium.JavascriptExecutor;
 import testprojectcore.base.DriverUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,11 +14,10 @@ import java.util.List;
 public class HomePage extends DriverUtils {
 
 
-
     @FindBy(xpath = "//a[@title='Close']")
     WebElement fancyBoxCloseButton;
 
-    @FindBy(css = "i[class='icon navigation-icon-user']")
+    @FindBy(id = "accountBtn")
     WebElement loginButton;
 
     @FindBy(css = "a[class='category-header']")
@@ -26,6 +26,8 @@ public class HomePage extends DriverUtils {
     @FindBy(css = "div#notification-popup .modal-close")
     WebElement indirimleriKacirmaPopup;
 
+    @FindBy(xpath = "//img[@class='trendyol-logo-c']")
+    WebElement trendyolLogo;
 
 
     public HomePage(WebDriver driver) {
@@ -45,11 +47,15 @@ public class HomePage extends DriverUtils {
     }
 
     public void clickLoginButton() {
+        JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
+        int yScrollPosition = loginButton.getLocation().getY();
+        javascriptExecutor.executeScript("window.scroll(0, " + yScrollPosition + ");");
         loginButton.click();
     }
 
-    public void waitForLoginButtonToBeClickable() {
-        waitUntil(ExpectedConditions.elementToBeClickable(loginButton), 10, driver);
+    public void waitForLoginButtonToBeClickable() throws InterruptedException {
+//        waitUntil(ExpectedConditions.elementToBeClickable(trendyolLogo), 10, driver);
+        Thread.sleep(500);      //Unfortunately
     }
 
     public void clickCategoryHeadersAccordingToALoopIndex(int loopIndex) {
