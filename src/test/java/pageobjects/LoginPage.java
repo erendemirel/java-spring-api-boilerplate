@@ -22,11 +22,11 @@ public class LoginPage extends DriverUtils {
     }
 
     public void enterUsername() throws Exception {
-        driver.findElement(usernameInputField).sendKeys(JsonFileParser.getInstance().parseJsonFileAndReturnRequestedDAta("trendyol.com webapp", "login.username"));
+        driver.findElement(usernameInputField).sendKeys(JsonFileParser.getInstance().parseJsonFileAndReturnRequestedDAta("", "login.username"));
     }
 
     public void enterPassword() throws Exception {
-        driver.findElement(passwordInputField).sendKeys(JsonFileParser.getInstance().parseJsonFileAndReturnRequestedDAta("trendyol.com webapp", "login.password"));
+        driver.findElement(passwordInputField).sendKeys(JsonFileParser.getInstance().parseJsonFileAndReturnRequestedDAta("", "login.password"));
     }
 
     public void clickSubmit() {
