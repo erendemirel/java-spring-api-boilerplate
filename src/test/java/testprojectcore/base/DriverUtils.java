@@ -22,9 +22,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
 
-/**
- * @author Eren Demirel <eren.demirel@payten.com>
- */
 public class DriverUtils extends Driver {
 
     public static Wait fluentWait;
