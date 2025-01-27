@@ -8,7 +8,7 @@ import pageobjects.*;
 import testprojectcore.testcontext.ScenarioContext;
 import testprojectcore.util.Helper;
 
-public class CaseStudyPart1UIStepDefs {
+public class UIStepDefs {
 
     private LoginPage loginPage;
 
