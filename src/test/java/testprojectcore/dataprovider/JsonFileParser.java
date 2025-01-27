@@ -6,10 +6,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 
-
-/**
- * @author Eren Demirel <eren.demirel@payten.com>
- */
 public class JsonFileParser {
 
     private static JsonFileParser jsonFileParser = new JsonFileParser();
