@@ -1,8 +1,8 @@
-@casestudytests
+@tests
 
-Feature: Case study section-II.
+Feature: Some API tests
 
-  Scenario: Apply given steps in case study, API Part
+  Scenario: Test basic functionality
 
     * Verify that the API starts with an empty store
     * Verify that title and author are required fields
