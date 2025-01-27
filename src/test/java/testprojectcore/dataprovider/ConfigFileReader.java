@@ -3,10 +3,6 @@ package testprojectcore.dataprovider;
 import java.io.*;
 import java.util.Properties;
 
-
-/**
- * @author Eren Demirel <eren.demirel@payten.com>
- */
 public class ConfigFileReader {
 
     private final Properties properties;
