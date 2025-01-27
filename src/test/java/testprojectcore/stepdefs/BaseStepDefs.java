@@ -8,9 +8,6 @@ import io.cucumber.java.Scenario;
 import org.junit.jupiter.api.Order;
 
 
-/**
- * @author Eren Demirel <eren.demirel@payten.com>
- */
 public class BaseStepDefs {
     @Before("@browser")
     @Order(Integer.MIN_VALUE)
