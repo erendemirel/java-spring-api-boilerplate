@@ -8,11 +8,6 @@ import java.util.List;
 import java.util.Set;
 
 
-/**
- * Object that holds the driver instance
- *
- * @author Eren Demirel <eren.demirel@payten.com>
- */
 public class Driver {
 
     public static WebDriver driver = new WebDriver() {
