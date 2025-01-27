@@ -4,7 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import restassured.tests.BookServiceTests;
 
-public class CaseStudyPart2APIStepDefs {
+public class APIStepDefs {
 
     BookServiceTests bookServiceTests = new BookServiceTests();
 
