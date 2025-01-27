@@ -1,10 +1,10 @@
 {
-  "trendyol.com webapp": {
-    "login.username": "ml4jvr+de25jmijhtcwg@sharklasers.com",
-    "login.password": "testadmin0"
+  "1": {
+    "login.username": "",
+    "login.password": ""
   },
-  "someOtherDataSet": {
-    "someData": "aAaAAaaaA",
-    "someOtherData": "aAaAaA"
+  "2": {
+    "someData": "",
+    "someOtherData": ""
   }
 }
