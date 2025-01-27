@@ -7,15 +7,10 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 
-/**
- * Creates an instance of given page class
- *
- * @author Eren Demirel <eren.demirel@payten.com>
- */
 public class PageObjectFactory {
 
 
-//    protected static FooPage fooPage;       //You can also register page objects here
+//    protected static FooPage fooPage;     
 
 
     public static <T extends DriverUtils> T createClass(Class<T> clazz) {
