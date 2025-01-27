@@ -8,14 +8,11 @@ import org.junit.runner.RunWith;
 
 import java.io.IOException;
 
-/**
- * @author Eren Demirel <eren.demirel@payten.com>
- */
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/resources/cucumber.features/",
         glue = {"testprojectcore", "stepdefs"},
-        tags = "@casestudytests"
+        tags = "@tests"
 )
 public class CucumberRunnerTest {
     @AfterClass
